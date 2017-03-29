@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="todosApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Todos</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	  <script src="js/app.js"></script>
+	  <script src="js/todosController.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" type="text/css" href="css/animate.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+
+  <div class="container main" ng-controller="TodosController">
+    <h3>You have {{all.length}} tasks left</h3>
+
+    <div class="todosthings">
+      <form class="form-inline" id="add-todo" ng-submit="add()">
+        <label class="sr-only" for="newTodos.task">Task</label>
+      </form>
+
+      <div ng-repeat="todo in all" ng-animate="todo">
+        {{todo.task}}
+        <input type="checkbox" ng-model="todo.done" />
+          <div ng-hide="todo.done" id="todos">
+        </div>
+        <button ng-click="todoRemove($index)">Remove</button>
+      </div>
+    </div>
+  </div>
+
+
+  </body>
+</html>
