@@ -19,6 +19,7 @@
     <div class="todosthings">
       <form class="form-inline" id="add-todo" ng-submit="add()">
         <label class="sr-only" for="newTodos.task">Task</label>
+        <input class="form-control" type="text" placeholder="Task.." ng-model="newTodo.task" />
       </form>
 
       <div ng-repeat="todo in all" ng-animate="todo">
